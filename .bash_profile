@@ -63,6 +63,13 @@ mkcd () {
         echo
     }
     
+#   memHogsTop, memHogsPs:  Find memory hogs
+    alias memHogsTop='top -l 1 -o rsize | head -20'
+    alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
+
+#   cpuHogs:  Find CPU hogs
+    alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
+    
 # findPid: find out the pid of a specified process
 #   -----------------------------------------------------
 #       Note that the command name can be specified via a regex
