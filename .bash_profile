@@ -13,6 +13,21 @@ killall Finder /System/Library/CoreServices/Finder.app
 alias ll="ls -lah"
 alias l="ls"
 
+# Networking Aliases
+alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
+alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
+alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
+alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
+alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
+alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
+alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
+
+# my_ps: List processes owned by my user:
+my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
+
 # rm -rf is such a legendarily dangerous command that any shell user should already know to avoid it, 
 # regardless of what aliases they have set up. Meanwhile, alias rm = rm -i has always seemed to me an 
 # obvious and necessary safeguard, given that rm is irreversible, unlike sending a file to the trash.
