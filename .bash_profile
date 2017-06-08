@@ -62,6 +62,14 @@ mkcd () {
         #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
         echo
     }
+    
+# findPid: find out the pid of a specified process
+#   -----------------------------------------------------
+#       Note that the command name can be specified via a regex
+#       E.g. findPid '/d$/' finds pids of all processes with names ending in 'd'
+#       Without the 'sudo' it will only find processes of the current user
+#   -----------------------------------------------------
+    findPid () { lsof -t -c "$@" ; }
 
 function sshKeyGen(){
   echo "What's the name of the Key (no spaced please)? ";
