@@ -2,7 +2,7 @@
 # Last change on 8th of June 2017
 
 # .bash_work contains work related stuff
-source ~/Dropbox/.dotfiles/.bash_work
+source ~/Users/boyan.aleksiev/Documents/work/.bash_work
 
 # Enable visibility of invisible files for Finder in OS X.
 # More information on http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/
