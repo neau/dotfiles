@@ -11,6 +11,40 @@ killall Finder /System/Library/CoreServices/Finder.app
 
 # Common aliases
 alias ll="ls -lah"
+alias l="ls"
+
+# rm -rf is such a legendarily dangerous command that any shell user should already know to avoid it, 
+# regardless of what aliases they have set up. Meanwhile, alias rm = rm -i has always seemed to me an 
+# obvious and necessary safeguard, given that rm is irreversible, unlike sending a file to the trash.
+alias rmi="rm -i"
+
+# only show dot files
+alias lsh="ls -ld .??*"
+
+# LESS man page colors
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+mkcd () {
+    mkdir -p "$*"
+    cd "$*"
+}
+
+function sshKeyGen(){
+  echo "What's the name of the Key (no spaced please)? ";
+  read name;
+  echo "What's the email associated with it? ";
+  read email;
+  `ssh-keygen -t rsa -f ~/.ssh/id_rsa_$name -C "$email"`;
+  ssh-add ~/.ssh/id_rsa_$name
+  pbcopy < ~/.ssh/id_rsa_$name.pub;
+  echo "SSH Key copied in your clipboard";
+}
 
 # grabs the latest .bash_profile file and reloads the prompt
 alias updatebashprofile="curl https://raw.github.com/erwanjegouzo/dotfiles/master/.bash_profile > ~/.bash_profile && reload"
@@ -18,6 +52,37 @@ alias updatebashprofile="curl https://raw.github.com/erwanjegouzo/dotfiles/maste
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"
+
+# rename all the files which contain uppercase letters to lowercase in the current folder
+function filestolower(){
+  read -p "This will rename all the files and directories to lowercase in the current folder, continue? [y/n]: " letsdothis
+  if [ "$letsdothis" = "y" ] || [ "$letsdothis" = "Y" ]; then
+    for x in `ls`
+      do
+      skip=false
+      if [ -d $x ]; then
+	read -p "'$x' is a folder, rename it? [y/n]: " renamedir
+	if [ "$renamedir" = "n" ] || [ "$renameDir" = "N" ]; then
+	  skip=true
+	fi
+      fi
+      if [ "$skip" == "false" ]; then
+        lc=`echo $x  | tr '[A-Z]' '[a-z]'`
+        if [ $lc != $x ]; then
+          echo "renaming $x -> $lc"
+          mv $x $lc
+        fi
+      fi
+    done
+  fi
+}
+
+# Generates a tree view from the current directory
+function tree(){
+	pwd
+	ls -R | grep ":$" |   \
+	sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+}
 
 #   remove_disk: spin down unneeded disk
 #   ---------------------------------------
