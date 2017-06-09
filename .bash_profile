@@ -107,9 +107,9 @@ mkcd () {
     findPid () { lsof -t -c "$@" ; }
 
 function sshKeyGen(){
-  echo "What's the name of the Key (no spaced please)? ";
+  echo "What is the name of the Key (no spaced please)?";
   read name;
-  echo "What's the email associated with it? ";
+  echo "What is the email associated with it?";
   read email;
   `ssh-keygen -t rsa -f ~/.ssh/id_rsa_$name -C "$email"`;
   ssh-add ~/.ssh/id_rsa_$name
