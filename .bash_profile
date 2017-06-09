@@ -184,3 +184,5 @@ function tree(){
 #   e.g.: hdiutil create -size 10m 10MB.dmg
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
+
+echo "neau's .bash_profile succesfully loaded."
