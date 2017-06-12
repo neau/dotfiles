@@ -76,12 +76,13 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# Create directory and enter it.
 mkcd () {
     mkdir -p "$*"
     cd "$*"
 }
 
-#  Display useful host related informaton
+#  Display useful host related informaton.
     ii() {
         echo -e "\nYou are logged on ${RED}$HOST"
         echo -e "\nAdditionnal information:$NC " ; uname -a
@@ -94,7 +95,7 @@ mkcd () {
         echo
     }
     
-#   memHogsTop, memHogsPs:  Find memory hogs
+#   memHogsTop, memHogsPs:  Find memory hogs.
     alias memHogsTop='top -l 1 -o rsize | head -20'
     alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 
@@ -121,7 +122,7 @@ function sshKeyGen(){
 }
 
 # grabs the latest .bash_profile file and reloads the prompt
-alias updatebashprofile="curl https://raw.github.com/erwanjegouzo/dotfiles/master/.bash_profile > ~/.bash_profile && reload"
+alias updatebashprofile="curl https://raw.github.com/neau/dotfiles/master/.bash_profile > ~/.bash_profile && reload"
 
 # hhhhhhnnnnnngggg
 alias ..="cd ../"
