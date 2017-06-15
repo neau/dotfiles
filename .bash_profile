@@ -16,8 +16,9 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;
 killall Finder /System/Library/CoreServices/Finder.app'
 
 # Common aliases
-alias ll="ls -lah"
-alias l="ls"
+alias ll='ls -lah'
+alias l='ls'
+alias grep='grep --color=auto'
 
 # Networking Aliases
 alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
