@@ -8,7 +8,7 @@ if [ -e '$BASH_WORK' ]; then
 fi
 
 # ease of acces to SSH into my server
-myssh='ssh neau@ec2-52-58-9-87.eu-central-1.compute.amazonaws.com'
+alias myssh='ssh neau@ec2-52-58-9-87.eu-central-1.compute.amazonaws.com'
 
 # Enable visibility of invisible files for Finder in OS X.
 # More information on http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/
