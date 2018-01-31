@@ -115,7 +115,7 @@ mkcd () {
     findPid () { lsof -t -c "$@" ; }
 
 function sshKeyGen(){
-  echo "What is the name of the Key (no spaced please)?";
+  echo "What is the name of the Key (nospaced please)?";
   read name;
   echo "What is the email associated with it?";
   read email;
