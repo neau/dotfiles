@@ -126,7 +126,7 @@ function sshKeyGen(){
 }
 
 # grabs the latest .bash_profile file and reloads the prompt
-alias updatebashprofile="curl https://raw.github.com/neau/dotfiles/master/.bash_profile > ~/.bash_profile && reload"
+alias updatebashprofile="curl https://raw.githubusercontent.com/neau/dotfiles/master/.bash_profile > ~/.bash_profile && reload"
 
 # hhhhhhnnnnnngggg
 alias ..="cd ../"
