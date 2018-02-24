@@ -1,14 +1,5 @@
 # neau's .bash_profile 
-# Last change on 8th of June 2017
-
-# .bash_work contains work related stuff
-BASH_WORK='~/Users/boyan.aleksiev/Documents/work/.bash_work'
-if [ -e '$BASH_WORK' ]; then
-    source !$
-fi
-
-# ease of acces to SSH into my server
-alias myssh='ssh neau@ec2-52-58-9-87.eu-central-1.compute.amazonaws.com'
+# Last change on Sat Feb 24 22:52:52 EET 2018
 
 # Enable visibility of invisible files for Finder in OS X.
 # More information on http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/
