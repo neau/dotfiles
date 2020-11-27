@@ -181,4 +181,8 @@ function tree(){
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
 
+# Install helm-cli
+# via https://helm.sh/docs/intro/install/
+alias helm-install='curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash'
+
 echo "neau's .bash_profile succesfully loaded."
